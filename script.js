@@ -53,17 +53,9 @@ document.querySelectorAll('.service-card, .why-card, .testimonial-card, .step, .
   observer.observe(el);
 });
 
-// Contact form submission
-document.getElementById('quote-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+// Contact form - let it submit to FormSubmit.co
+document.getElementById('quote-form').addEventListener('submit', function () {
   const btn = this.querySelector('button[type="submit"]');
-  btn.textContent = 'Request Sent!';
-  btn.style.background = '#16a34a';
+  btn.textContent = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send My Free Quote Request';
-    btn.style.background = '';
-    btn.disabled = false;
-    this.reset();
-  }, 4000);
 });
