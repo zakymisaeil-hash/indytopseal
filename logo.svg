@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5C518"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#E8B84B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Road winding into distance (top) -->
+  <path d="M50 38 C50 38, 42 28, 38 18 C36 12, 39 6, 44 5 C47 4, 50 8, 50 8 C50 8, 53 4, 56 5 C61 6, 64 12, 62 18 C58 28, 50 38, 50 38Z" fill="url(#gold)"/>
+  <!-- Road dashes -->
+  <path d="M50 35 L50 14" stroke="rgba(0,0,0,0.35)" stroke-width="1.4" stroke-dasharray="3 2.5" stroke-linecap="round"/>
+
+  <!-- T letter - crossbar -->
+  <rect x="24" y="38" width="52" height="11" rx="2" fill="url(#gold)"/>
+  <!-- T letter - vertical stem -->
+  <rect x="43" y="49" width="14" height="20" fill="url(#gold)"/>
+
+  <!-- S letter -->
+  <!-- Top arc of S -->
+  <path d="M62 69 Q64 62 58 60 L46 57 Q38 55 37 63 Q37 69 44 71 L56 74 Q65 77 64 85 Q63 93 55 95 Q46 97 38 93 L38 86 Q46 90 53 89 Q60 88 60 84 Q60 80 53 78 L41 75 Q31 72 31 64 Q30 55 39 52 Q47 49 57 51 Q65 53 67 60 Q68 66 64 69 Z" fill="url(#gold)"/>
+
+  <!-- Gear icon -->
+  <circle cx="50" cy="101" r="3.5" fill="none" stroke="url(#gold)" stroke-width="1.4"/>
+  <circle cx="50" cy="101" r="1.4" fill="url(#gold)"/>
+  <!-- Gear teeth -->
+  <rect x="49.2" y="96.5" width="1.6" height="2" rx="0.5" fill="url(#gold)"/>
+  <rect x="49.2" y="103.5" width="1.6" height="2" rx="0.5" fill="url(#gold)"/>
+  <rect x="45.5" y="100.2" width="2" height="1.6" rx="0.5" fill="url(#gold)"/>
+  <rect x="52.5" y="100.2" width="2" height="1.6" rx="0.5" fill="url(#gold)"/>
+  <rect x="46.8" y="97.8" width="1.4" height="1.4" rx="0.4" transform="rotate(45 47.5 98.5)" fill="url(#gold)"/>
+  <rect x="51.8" y="97.8" width="1.4" height="1.4" rx="0.4" transform="rotate(45 52.5 98.5)" fill="url(#gold)"/>
+  <rect x="46.8" y="102.2" width="1.4" height="1.4" rx="0.4" transform="rotate(45 47.5 102.9)" fill="url(#gold)"/>
+  <rect x="51.8" y="102.2" width="1.4" height="1.4" rx="0.4" transform="rotate(45 52.5 102.9)" fill="url(#gold)"/>
+
+  <!-- Arrow down -->
+  <line x1="50" y1="105" x2="50" y2="115" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="44,111 50,118 56,111" fill="none" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
