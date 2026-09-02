@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Photo Editor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="toolbar">
+      <div class="tool-group">
+        <button id="btn-open" title="Open Image (Ctrl+O)">📂 Open</button>
+        <button id="btn-save" title="Save (Ctrl+S)">💾 Save</button>
+      </div>
+      <div class="tool-group">
+        <button id="btn-undo" title="Undo (Ctrl+Z)">↩ Undo</button>
+        <button id="btn-redo" title="Redo (Ctrl+Shift+Z)">↪ Redo</button>
+      </div>
+      <div class="tool-group">
+        <button data-tool="select" class="tool-btn active" title="Select / Move">🖱 Select</button>
+        <button data-tool="crop" class="tool-btn" title="Crop">✂ Crop</button>
+        <button data-tool="draw" class="tool-btn" title="Freehand Draw">✏ Draw</button>
+        <button data-tool="erase" class="tool-btn" title="Eraser">🧽 Erase</button>
+        <button data-tool="text" class="tool-btn" title="Add Text">🔤 Text</button>
+        <button data-tool="rect" class="tool-btn" title="Rectangle">▭ Rect</button>
+        <button data-tool="circle" class="tool-btn" title="Circle">◯ Circle</button>
+        <button data-tool="line" class="tool-btn" title="Line">／ Line</button>
+      </div>
+      <div class="tool-group">
+        <button id="btn-rotate-l" title="Rotate Left">⟲</button>
+        <button id="btn-rotate-r" title="Rotate Right">⟳</button>
+        <button id="btn-flip-h" title="Flip Horizontal">⇋</button>
+        <button id="btn-flip-v" title="Flip Vertical">⇵</button>
+        <button id="btn-delete" title="Delete Selected">🗑</button>
+      </div>
+      <div class="tool-group">
+        <button id="btn-zoom-out" title="Zoom Out">−</button>
+        <span id="zoom-label">100%</span>
+        <button id="btn-zoom-in" title="Zoom In">+</button>
+      </div>
+    </div>
+
+    <div id="main-area">
+      <div id="canvas-wrap">
+        <div id="empty-state">
+          <p>No image loaded</p>
+          <button id="btn-open-2">Open an Image</button>
+        </div>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div id="side-panel">
+        <section>
+          <h3>Adjustments</h3>
+          <label>Brightness <input type="range" id="adj-brightness" min="-100" max="100" value="0" /></label>
+          <label>Contrast <input type="range" id="adj-contrast" min="-100" max="100" value="0" /></label>
+          <label>Saturation <input type="range" id="adj-saturation" min="-100" max="100" value="0" /></label>
+          <label>Hue <input type="range" id="adj-hue" min="-180" max="180" value="0" /></label>
+          <label>Gamma <input type="range" id="adj-gamma" min="10" max="300" value="100" /></label>
+          <label>Sharpen <input type="range" id="adj-sharpen" min="0" max="100" value="0" /></label>
+          <label>Blur <input type="range" id="adj-blur" min="0" max="100" value="0" /></label>
+          <label>Noise <input type="range" id="adj-noise" min="0" max="200" value="0" /></label>
+          <label>Vignette <input type="range" id="adj-vignette" min="0" max="100" value="0" /></label>
+          <button id="btn-reset-adjust">Reset Adjustments</button>
+        </section>
+
+        <section>
+          <h3>Filters</h3>
+          <div class="filter-grid">
+            <button data-filter="none">None</button>
+            <button data-filter="grayscale">Grayscale</button>
+            <button data-filter="sepia">Sepia</button>
+            <button data-filter="invert">Invert</button>
+            <button data-filter="vintage">Vintage</button>
+            <button data-filter="polaroid">Polaroid</button>
+            <button data-filter="technicolor">Technicolor</button>
+            <button data-filter="blackwhite">B&W</button>
+          </div>
+        </section>
+
+        <section>
+          <h3>Resize / Crop</h3>
+          <label>Width <input type="number" id="resize-width" min="1" /></label>
+          <label>Height <input type="number" id="resize-height" min="1" /></label>
+          <label class="checkbox"><input type="checkbox" id="resize-lock" checked /> Lock aspect ratio</label>
+          <button id="btn-apply-resize">Apply Resize</button>
+          <hr />
+          <button id="btn-apply-crop">Apply Crop</button>
+          <button id="btn-cancel-crop">Cancel Crop</button>
+        </section>
+
+        <section id="draw-options">
+          <h3>Draw / Shape Style</h3>
+          <label>Color <input type="color" id="draw-color" value="#ff0000" /></label>
+          <label>Stroke Width <input type="range" id="draw-width" min="1" max="50" value="4" /></label>
+          <label class="checkbox"><input type="checkbox" id="shape-fill" /> Fill shape</label>
+        </section>
+
+        <section id="text-options">
+          <h3>Text Style</h3>
+          <label>Font Size <input type="range" id="text-size" min="8" max="200" value="32" /></label>
+          <label>Color <input type="color" id="text-color" value="#ffffff" /></label>
+          <label>Font
+            <select id="text-font">
+              <option>Arial</option>
+              <option>Georgia</option>
+              <option>Courier New</option>
+              <option>Impact</option>
+              <option>Comic Sans MS</option>
+            </select>
+          </label>
+          <label class="checkbox"><input type="checkbox" id="text-bold" /> Bold</label>
+        </section>
+      </div>
+    </div>
+
+    <div id="statusbar">
+      <span id="status-text">Ready</span>
+      <span id="status-size"></span>
+    </div>
+  </div>
+
+  <script src="../node_modules/fabric/dist/fabric.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
